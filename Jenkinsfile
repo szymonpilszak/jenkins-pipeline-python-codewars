@@ -1,24 +1,48 @@
-post {
-    success {
-        echo 'All tests passed!'
-        bat """
-        python -c "import requests, os; requests.post(
-            f'https://api.github.com/repos/szymonpilszak/jenkins-pipeline-python-codewars/statuses/{os.environ['COMMIT']}',
-            headers={'Authorization': 'token ' + os.environ['GITHUB_TOKEN'],
-                     'Accept': 'application/vnd.github+json'},
-            json={'state':'success','description':'All tests passed','context':'Jenkins'}
-        )"
-        """
+pipeline {
+    agent any
+
+    environment {
+        // Wstaw tutaj ID poświadczenia, które dodałeś w Jenkinsie
+        GITHUB_TOKEN = credentials('github-token')
+        REPO_OWNER = 'szymonpilszak'
+        REPO_NAME = 'jenkins-pipeline-python-codewars'
     }
-    failure {
-        echo 'Some tests failed.'
-        bat """
-        python -c "import requests, os; requests.post(
-            f'https://api.github.com/repos/szymonpilszak/jenkins-pipeline-python-codewars/statuses/{os.environ['COMMIT']}',
-            headers={'Authorization': 'token ' + os.environ['GITHUB_TOKEN'],
-                     'Accept': 'application/vnd.github+json'},
-            json={'state':'failure','description':'Tests failed','context':'Jenkins'}
-        )"
-        """
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: "https://github.com/${env.REPO_OWNER}/${env.REPO_NAME}.git"
+            }
+        }
+
+        stage('Check Environment') {
+            steps {
+                bat 'echo %PATH%'
+                bat 'python --version'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat 'python -m unittest discover tests'
+            }
+        }
+    }
+
+    post {
+        success {
+            // Zgłaszanie sukcesu do GitHub
+            githubNotify context: 'Jenkins', status: 'SUCCESS', description: 'All tests passed'
+            echo 'All tests passed!'
+        }
+        failure {
+            // Zgłaszanie błędu do GitHub
+            githubNotify context: 'Jenkins', status: 'FAILURE', description: 'Some tests failed'
+            echo 'Some tests failed.'
+        }
+        always {
+            echo 'Build finished!'
+        }
     }
 }
