@@ -1,3 +1,6 @@
+![Build Status](https://github.com/szymonpilszak/jenkins-pipeline-python-codewars/actions/workflows/ci.yml/badge.svg)
+
+
 # Codewars Python Solutions
 
 A collection of Codewars solutions in Python with simple unit tests.  
