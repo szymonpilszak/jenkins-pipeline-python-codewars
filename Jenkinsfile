@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        
         GITHUB_TOKEN = credentials('github-token')
-        PYTHON_PATH = "C:\\Users\\szymo\\AppData\\Local\\Programs\\Python\\Python310\\"
+        PYTHON_HOME = "C:\\Users\\szymo\\AppData\\Local\\Programs\\Python\\Python310"
+        GIT_HOME    = "C:\\Program Files\\Git\\cmd"
     }
 
     stages {
@@ -14,10 +14,25 @@ pipeline {
             }
         }
 
+        stage('Get Commit SHA') {
+            steps {
+                script {
+                    // Pobranie SHA aktualnego commita
+                    commitSha = bat(script: 'git rev-parse HEAD', returnStdout: true).trim()
+                    echo "Commit SHA: ${commitSha}"
+                }
+            }
+        }
+
         stage('Check Environment') {
             steps {
-                bat "echo %PYTHON_PATH%;C:\\Program Files\\Git\\cmd;C:\\Users\\szymo\\AppData\\Local\\Programs\\Python\\Python310\\Scripts;%PATH%"
-                bat "python --version"
+                script {
+                    // Ustawienie PATH w prosty sposób
+                    env.PATH = "${PYTHON_HOME};${PYTHON_HOME}\\Scripts;${GIT_HOME};${env.PATH}"
+                    bat "echo %PATH%"
+                    bat "python --version"
+                    bat "git --version"
+                }
             }
         }
 
@@ -36,6 +51,7 @@ pipeline {
                 status: 'SUCCESS',
                 repo: 'szymonpilszak/jenkins-pipeline-python-codewars',
                 account: 'szymonpilszak',
+                sha: commitSha,
                 credentialsId: 'github-token'
             )
             echo 'Build finished successfully!'
@@ -48,6 +64,7 @@ pipeline {
                 status: 'FAILURE',
                 repo: 'szymonpilszak/jenkins-pipeline-python-codewars',
                 account: 'szymonpilszak',
+                sha: commitSha,
                 credentialsId: 'github-token'
             )
             echo 'Build failed!'
