@@ -29,3 +29,7 @@ For public visibility, the same tests are run automatically on GitHub Actions fo
 1. **Local Jenkins** runs the pipeline with Python 3.10 and unittests. Screenshots of Jenkins builds can be added to the repository manually for documentation.
 2. **Screenshots** of Jenkins builds are added to the repository manually for documentation.
 3. **GitHub Actions** runs the same tests automatically on push and pull requests to `main`.
+
+
+   ## TODO IN FUTURE
+   1. **Public server with docker**  to run pipeline independently from my localhost.
