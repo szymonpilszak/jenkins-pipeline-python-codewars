@@ -1,5 +1,3 @@
-![Build Status](http://localhost:8080/job/python-codewars/badge/icon)
-
 # Codewars Python Solutions
 
 A collection of Codewars solutions in Python with simple unit tests.  
