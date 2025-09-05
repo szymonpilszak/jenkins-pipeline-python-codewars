@@ -14,13 +14,12 @@ This project uses **Jenkins** for local CI and **GitHub Actions** for public CI 
 Jenkins is running **locally on my machine**. Because the server is not publicly accessible, the build status cannot be directly shown in this README.  
 
 To see the Jenkins build output, I attach **screenshots of the latest build** for each commit. These screenshots show that all tests pass or fail as expected.
+<img width="1850" height="902" alt="image" src="https://github.com/user-attachments/assets/97d77df0-6d51-411e-b46a-2a43782413aa" />
 
 
 ## GitHub Actions
 
 For public visibility, the same tests are run automatically on GitHub Actions for every commit to the `main` branch.  
-
-<img width="1850" height="902" alt="image" src="https://github.com/user-attachments/assets/97d77df0-6d51-411e-b46a-2a43782413aa" />
 
 
 ## How it works
