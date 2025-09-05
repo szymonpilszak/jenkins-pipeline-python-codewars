@@ -36,7 +36,7 @@ pipeline {
                 status: 'SUCCESS',
                 repo: 'szymonpilszak/jenkins-pipeline-python-codewars',
                 account: 'szymonpilszak',
-                credentialsId: 'github-token-id'
+                credentialsId: 'github-token'
             )
             echo 'Build finished successfully!'
         }
