@@ -36,6 +36,20 @@ pipeline {
             }
         }
 
+        stage('Test Credentials') {
+            steps {
+                script {
+                    // Sprawdzenie, czy Jenkins widzi token
+                    def secret = credentials('github-token')
+                    if (secret) {
+                        echo "Secret is set!"
+                    } else {
+                        echo "Secret NOT found!"
+                    }
+                }
+            }
+        }
+
         stage('Run Tests') {
             steps {
                 bat "python -m unittest discover tests"
