@@ -9,6 +9,13 @@ pipeline {
             }
         }
 
+        stage('Check Environment') {   // <-- nowy etap
+            steps {
+                bat 'echo %PATH%'
+                bat 'python --version'
+            }
+        }
+
         stage('Setup Python') {
             steps {
                 bat 'python -m pip install --upgrade pip || exit /b 0'
