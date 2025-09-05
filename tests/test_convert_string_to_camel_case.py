@@ -5,7 +5,7 @@ class TestConvertStringToCamelCase(unittest.TestCase):
     
     def test_to_camel_case(self):
         #Test for basic examples
-        self.assertEqual(to_camel_case("the_stealth_samurai"), "theStealthSamurair")
+        self.assertEqual(to_camel_case("the_stealth_samurai"), "theStealthSamurai")
         self.assertEqual(to_camel_case("The-Stealth-Samurai"), "TheStealthsamurai")
         self.assertEqual(to_camel_case("the-Stealth_Samurai"), "theStealthSamurai")
         
