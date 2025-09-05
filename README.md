@@ -1,4 +1,4 @@
-![Build Status](https://github.com/szymonpilszak/jenkins-pipeline-python-codewars/actions/workflows/ci.yml/badge.svg)
+[![Build Status](https://github.com/szymonpilszak/jenkins-pipeline-python-codewars/actions/workflows/ci.yml/badge.svg)](https://github.com/szymonpilszak/jenkins-pipeline-python-codewars/actions/workflows/ci.yml)
 
 
 # Codewars Python Solutions
