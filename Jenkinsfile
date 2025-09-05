@@ -63,7 +63,7 @@ pipeline {
                 context: 'CI',
                 description: 'Build passed',
                 status: 'SUCCESS',
-                repo: 'szymonpilszak/jenkins-pipeline-python-codewars',
+                repo: 'jenkins-pipeline-python-codewars',
                 account: 'szymonpilszak',
                 sha: commitSha,
                 credentialsId: '61e675e2-c55c-4414-8144-81c273eec53d'
