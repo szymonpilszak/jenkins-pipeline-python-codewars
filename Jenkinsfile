@@ -17,8 +17,8 @@ pipeline {
         stage('Get Commit SHA') {
             steps {
                 script {
-                    // Pobranie SHA aktualnego commita
-                    commitSha = bat(script: 'git rev-parse HEAD', returnStdout: true).trim()
+		    def output = bat(script: 'git rev-parse HEAD', returnStdout: true).trim()
+                    commitSha = output.tokenize()[-1]  // weź ostatnie słowo – samo SHA
                     echo "Commit SHA: ${commitSha}"
                 }
             }
