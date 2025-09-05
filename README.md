@@ -31,5 +31,5 @@ For public visibility, the same tests are run automatically on GitHub Actions fo
 3. **GitHub Actions** runs the same tests automatically on push and pull requests to `main`.
 
 
-   ## TODO IN FUTURE
-   1. **Public server with docker**  to run pipeline independently from my localhost.
+## TODO IN FUTURE
+1. **Public server with docker**  to run pipeline independently from my localhost.
