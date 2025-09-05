@@ -21,3 +21,10 @@ To see the Jenkins build output, I attach **screenshots of the latest build** fo
 For public visibility, the same tests are run automatically on GitHub Actions for every commit to the `main` branch.  
 
 <img width="1850" height="902" alt="image" src="https://github.com/user-attachments/assets/97d77df0-6d51-411e-b46a-2a43782413aa" />
+
+
+## How it works
+
+1. **Local Jenkins** runs the pipeline with Python 3.10 and unittests.
+2. **Screenshots** of Jenkins builds are attached to commits for documentation.
+3. **GitHub Actions** runs the same tests automatically on push and pull requests to `main`.
