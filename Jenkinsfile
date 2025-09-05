@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GITHUB_TOKEN = credentials('github-token')
+        GITHUB_TOKEN = credentials('61e675e2-c55c-4414-8144-81c273eec53d')
         PYTHON_HOME = "C:\\Users\\szymo\\AppData\\Local\\Programs\\Python\\Python310"
         GIT_HOME    = "C:\\Program Files\\Git\\cmd"
     }
@@ -66,7 +66,7 @@ pipeline {
                 repo: 'szymonpilszak/jenkins-pipeline-python-codewars',
                 account: 'szymonpilszak',
                 sha: commitSha,
-                credentialsId: 'github-token'
+                credentialsId: '61e675e2-c55c-4414-8144-81c273eec53d'
             )
             echo 'Build finished successfully!'
         }
@@ -79,7 +79,7 @@ pipeline {
                 repo: 'szymonpilszak/jenkins-pipeline-python-codewars',
                 account: 'szymonpilszak',
                 sha: commitSha,
-                credentialsId: 'github-token'
+                credentialsId: '61e675e2-c55c-4414-8144-81c273eec53d'
             )
             echo 'Build failed!'
         }
