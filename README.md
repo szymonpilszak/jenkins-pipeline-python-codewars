@@ -32,4 +32,9 @@ For public visibility, the same tests are run automatically on GitHub Actions fo
 
 
 ## TODO IN FUTURE
-1. **Public server with docker**  to run pipeline independently from my localhost.
+- Set up a **public Jenkins server** running inside **Docker** on [Render](https://render.com),  
+  so that the CI/CD pipeline can be executed **independently from my localhost**.  
+- This will allow anyone to access the Jenkins **web interface** and preview  
+  the pipeline results, build history and test reports online.  
+- On the free Render plan the server may enter *sleep mode* after a period of inactivity,  
+  which means it could take a short while to wake up when opened.  
