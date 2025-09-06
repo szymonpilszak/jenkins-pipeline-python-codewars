@@ -11,6 +11,7 @@ This project uses **Jenkins** for local CI and **GitHub Actions** for public CI 
 
 ## Local Jenkins
 
+**Temporary soultion:**
 Jenkins is running **locally on my machine**. Because the server is not publicly accessible, the build status cannot be directly shown in this README.  
 
 To see the Jenkins build output, I attach **screenshots of the latest build** for each commit. These screenshots show that all tests pass or fail as expected.
@@ -26,9 +27,9 @@ For public visibility, the same tests are run automatically on GitHub Actions fo
 
 ## How it works
 
-1. **Local Jenkins** runs the pipeline with Python 3.10 and unittests. Screenshots of Jenkins builds can be added to the repository manually for documentation.
+1. **Local Jenkins** runs the pipeline with Python 3.10 and unittests.
 2. **GitHub Actions** runs the same tests automatically on push and pull requests to `main`.
-4. **Temporary soultion:** Screenshot of Jenkins builds are added to the repository manually for documentation as for now the pipline runs at localhost. 
+3. **Temporary soultion:** Screenshot of Jenkins builds are added to the repository manually for documentation as for now the pipline runs at localhost. 
 
 
 ## TODO IN FUTURE
